@@ -33,7 +33,7 @@ async function deployDiamond () {
   const FacetNames = [
     'DiamondLoupeFacet',
     'OwnershipFacet',
-    'CustomToken'
+    // 'CustomToken'
   ]
   const cut = []
   for (const FacetName of FacetNames) {
