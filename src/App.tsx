@@ -7,12 +7,14 @@ const CONTRACT_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
 
 const App = () => {
   const [provider, setProvider] = useState<any>();
-  useEffect(() => {
-    setProvider(new ethers.providers.Web3Provider((window as any).ethereum));
+  const main = async () => {
     let provider = new ethers.providers.Web3Provider((window as any).ethereum);
     let contract = new ethers.Contract(CONTRACT_ADDRESS, diamondLoupeFactArtifact.abi, provider);
-    const facets = contract.facets();
+    const facets = await contract.facets();
     console.log('facets', facets);
+  }
+  useEffect(() => {
+    main();
   }, [])
   return (
     <div>foo</div>
